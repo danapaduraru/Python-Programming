@@ -3,10 +3,11 @@
 
 def check_string(string):
     special_characters = ["\r", "\t", "\n", "\a", "\b", "\f", "\v"]
-    if string.__contains__(special_characters):
-        return True
+    for ch in special_characters:
+        if string.__contains__(ch):
+            return True
     return False
 
 
-test = "Has\nspecialcharacters"
+test = "Hass\npecialcharacters"
 print(check_string(test))
