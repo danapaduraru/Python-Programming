@@ -28,6 +28,7 @@ def get_multipliers(polynomial):
 
 
 def get_powers(polynomial):
+    # 13x ^ 3 + 5x ^ 2 - 2x - 5  => [3,2,1] Gets the powers of x in the polynomial in their order
     powers = []
     next_pw = polynomial.find("x ^ ")
     while next_pw != -1:
@@ -46,13 +47,57 @@ def get_powers(polynomial):
     return powers
 
 
+def get_element_without_x(polynomial):
+    # Checks if we have an element like 8 in 3x ^ 2 + 5x + 8 (with 0 as x's multiplier)
+    polynomial = polynomial[polynomial.rfind(' ') + 1:]
+    if polynomial.find('x') == -1:
+        return polynomial
+    else:
+        return -1
+
+
+def get_operators(polynomial):
+    # Gets + and - in their order from the polynomial
+    operations = []
+    next_op = 0
+    pos = 0
+    while next_op != -1:
+        plus = polynomial.find('+', pos)
+        minus = polynomial.find('-', pos)
+        if plus != -1 and minus != -1:
+            next_op = plus if plus < minus else minus
+        elif plus != -1:
+            next_op = plus
+        else:
+            next_op = minus
+        if next_op != -1:
+            operation = polynomial[next_op]
+            operations.append(operation)
+        pos = next_op + 1
+    return operations
+
+
 def solve_polynomial(polynomial, number):
-    multipliers = get_multipliers(polynomial)
-    powers = get_powers(polynomial)
+    multipliers = list(map(int, get_multipliers(polynomial)))
+    powers = list(map(int, get_powers(polynomial)))
+    operators = get_operators(polynomial)
+    last_element = int(get_element_without_x(polynomial))
+    result = 0
+    for element in range(multipliers.__len__()):
+        partial_result = multipliers[element] * (number ** powers[element])
+        print(partial_result)
+        if operators[element] == '+':
+            result += partial_result
+        else:
+            result -= partial_result
+        print(partial_result)
+    #result += last_element
+    return result
+    # DECI trb sa verificam si ce semn are pprimul element ca e o problema cu semnul la result
 
 
-test_1 = "3x ^ 2 + 5x + 7"
+test_1 = "3x ^ 2 + 5x - 4"
 test_3 = "13x ^ 3 + x ^ 2 - 2x - 5"
-test_2 = 1
+test_2 = 2
 # print(solve_polynomial(test_1, test_2))
-print(get_powers(test_1))
+print(solve_polynomial(test_1, test_2))

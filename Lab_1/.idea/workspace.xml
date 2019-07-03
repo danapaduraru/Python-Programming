@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/ex_8.py" line="93" mnemonic="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fc404c2e-a5f9-4161-a246-9b806e0a2173" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ex_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex_7.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex_9.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/ex_5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ex_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/ex_8.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +16,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Lab_1$ex_7.coverage" NAME="ex_7 Coverage Results" MODIFIED="1561380646633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lab_1$ex_8.coverage" NAME="ex_8 Coverage Results" MODIFIED="1561397847710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lab_1$ex_8.coverage" NAME="ex_8 Coverage Results" MODIFIED="1561744383069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab_1$ex_4.coverage" NAME="ex_4 Coverage Results" MODIFIED="1561369658054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab_1$ex_2.coverage" NAME="ex_2 Coverage Results" MODIFIED="1561280567017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab_1$ex_6.coverage" NAME="ex_6 Coverage Results" MODIFIED="1561281780886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -76,8 +75,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ex_8.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="260">
+              <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#430#911#0" />
+                <element signature="e#974#1554#0" />
+                <element signature="e#1052#1376#0" />
+                <element signature="e#1093#1131#0" />
+                <element signature="e#1594#1822#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -313,23 +320,24 @@
       <workItem from="1561279991548" duration="5116000" />
       <workItem from="1561312324336" duration="1944000" />
       <workItem from="1561368828149" duration="11386000" />
-      <workItem from="1561396830142" duration="1336000" />
+      <workItem from="1561396830142" duration="1482000" />
+      <workItem from="1561739995020" duration="4191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19782000" />
+    <option name="totallyTimeSpent" value="24119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.096481875" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09754797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25568798" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30010834" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -349,6 +357,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ex_8.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ex_2.py">
@@ -409,8 +428,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ex_8.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        <state relative-caret-position="260">
+          <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#430#911#0" />
+            <element signature="e#974#1554#0" />
+            <element signature="e#1052#1376#0" />
+            <element signature="e#1093#1131#0" />
+            <element signature="e#1594#1822#0" />
+          </folding>
         </state>
       </provider>
     </entry>
