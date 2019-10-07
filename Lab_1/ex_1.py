@@ -9,7 +9,6 @@ def cmmdc(a, b):
         a, b = b, a % b
     return a
 
-
 def cmmdc_multiple_numbers(*numbers):
     result = numbers[0]
     for i in range(numbers.__len__()):
@@ -28,4 +27,9 @@ def cmmdc(a,b):
     if b > a:
         return cmmdc(b,a)
     return cmmdc(b, a%b)
+"""
+
+""" Read from the console:
+x = input('Enter x: ') # will always return String
+x = int(x)
 """
