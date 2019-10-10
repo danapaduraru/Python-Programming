@@ -10,8 +10,9 @@ oba_      11 16 15 6
 htyp      10 9  8  7
 """
 
+
 def get_spiral_string(matrix):
-    
+    return ''
 
 
 # Write a function that checks whether a character string contains special characters (\r, \t, \n, \a, \b, \f, \v)

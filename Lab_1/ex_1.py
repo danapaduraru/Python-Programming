@@ -9,6 +9,7 @@ def cmmdc(a, b):
         a, b = b, a % b
     return a
 
+
 def cmmdc_multiple_numbers(*numbers):
     result = numbers[0]
     for i in range(numbers.__len__()):
@@ -16,8 +17,8 @@ def cmmdc_multiple_numbers(*numbers):
     return result
 
 
-print(cmmdc_multiple_numbers(4,10,18))
-print(cmmdc_multiple_numbers(5,10,15))
+print(cmmdc_multiple_numbers(4, 10, 18))
+print(cmmdc_multiple_numbers(5, 10, 15))
 
 """
 Recursive Version:

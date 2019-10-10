@@ -91,7 +91,7 @@ def solve_polynomial(polynomial, number):
         else:
             result -= partial_result
         print(partial_result)
-    #result += last_element
+    # result += last_element
     return result
     # DECI trb sa verificam si ce semn are pprimul element ca e o problema cu semnul la result
 

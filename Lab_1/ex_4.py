@@ -13,4 +13,4 @@ def number_of_occurences(string, substring):
 
 test_1 = "calamar"
 test_2 = "cal"
-print(number_of_occurences(test_1,test_2))
+print(number_of_occurences(test_1, test_2))

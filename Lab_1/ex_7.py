@@ -13,4 +13,4 @@ def check_pheasant(char_len, *strings):
 
 
 print(check_pheasant(2, "atentie", "iepure"))
-print(check_pheasant(2, "domoala","lautar", "artefact"))
+print(check_pheasant(2, "domoala", "lautar", "artefact"))
