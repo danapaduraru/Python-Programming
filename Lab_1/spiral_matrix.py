@@ -18,12 +18,26 @@ ex = [
     [10, 9, 8, 7]
 ]
 
+ex_string = [
+    ['f', 'i', 'r', 's'],
+    ['n', '_', 'l', 't'],
+    ['o', 'b', 'a', '_'],
+    ['h', 't', 'y', 'p']
+]
 
 def get_elements_spiral_matrix(matrix):
-    length = int(len(matrix) / 2)
-    for r in range(0, length):
+    length = len(matrix[0])
+    word = ""
+    for r in range(0, int(length / 2), 1):
         for i in range(r, length - r):
-            print(matrix[i][length - r])
+            word += str(matrix[r][i])
+        for i in range(r + 1, length - r):
+            word += str(matrix[i][length - r - 1])
+        for i in range(length - r - 2, r - 1, -1):
+            word += str(matrix[length - r - 1][i])
+        for i in range(length - r - 2, r, -1):
+            word += str(matrix[i][r])
+    return word
 
 
-get_elements_spiral_matrix(ex)
+print(get_elements_spiral_matrix(ex_string))
