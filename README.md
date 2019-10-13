@@ -4,6 +4,7 @@ Courses and laboratories for the Python course at university.
 
 ## Courses - information to remember
 
+## Course 1 - Introduction
 
 ### Coding Style
 
@@ -257,6 +258,295 @@ def myFunction(x):
 print (myFunction (5))
 ```
 
+## Course 2 - Sequences
+
+### Lambda Functions
+
+A lambda function is defined is the following way:
+**lambda** *<list_of_parameters> : return_value*
+
+```py
+addition = lambda x,y : x+y
+print(addition(3,5))
+```
+
+Lambdas are bind during the run-time. This means that a lambda with a specific behaviour can be build at the run-time using the data dynamically generate.
+
+```py
+def create_divisible_check_function(n):
+        return lambda x: x%n==0
+div_2 = create_divisible_check_function(2)
+div_7 = create_divisible_check_function(7)
+```
+div_2 and div_7 are dynamically generated. This programming paradigm is called **closure**.
+
+
+### Sequences
+
+**Lists are mutable and tuples are immutable**
+
+```py
+x = [1,2] * 3 # x will contain [1,2, 1,2, 1,2]
+x = [10,] # it's okay to use comma here
+```
+
+```py
+x,y = (1,2) 
+# same as:
+x,y = 1,2
+```
+
+```py
+x = ['A','B',2,3,'C']
+print(x[1:-3] # 'B'
+```
+
+- Both lists and tuples can be concatenated, **but not with each other.**
+
+- Tuples are also used to return multiple values from a function.
+
+- We can also use the **enumerate** keyword to enumerate a list and get the index off the item at the same time:
+```py
+for index, name in enumerate(['Dragos','Dana','Alex']):
+        print('Index:%d => %s'%(index, name))
+# OR use an external variable
+index = 0
+for name in (["Dragos","Dana","Alex"]):
+        print("Index %d => %s"%(index, name))
+        index += 1
+# Both will print:
+Index:0 => Dragos
+Index:1 => Dana
+Index:2 => Alex
+```
+- Enumerate function also allows a second parameter to specify the index base(default is 0)
+
+```py
+for index, name in enumerate (["Dragos","Dana","Alex"], 2):
+        print("Index %d => %s"%(index, name))
+# will return Index: 2 => Dragos, Index: 3=> Dana...
+```
+
+### Lists and Functional Programming
+
+```py
+# A list of all divisor of 23 smaller than 100
+x = [i for i in range(1,100) if i % 23 == 0] #x = [23, 46, 69, 92]
+
+# A list of all square values for numbers from 1 to 5
+x = [i*i for i in range(1,6)] # x = [1,4,9,16,25]
+
+# A list of pairs of numbers from 1 to 10 that summed up produce a number that divides with 7
+x = [[x,y] for x in range(1,10) for y in range(1,10) if (x+y)%7==0]
+
+# A list of tuples of numbers from 1 to 10 that summed up produce a number that divides with 7
+x = [(x,y) for x in range(1,10) for y in range(1,10) if (x+y)%7==0]
+
+# A list of prime numbers that are smaller than 100
+x = [x for x in range(2,100) if len([y for y in range(2,x/2+1) if x%y ==0])==0]
+
+```
+
+### LISTS
+
+```py
+x = [1,2,3] #x = [1, 2, 3]
+x.append(4) #x = [1, 2, 3, 4]
+x+=[5] #x = [1, 2, 3, 4, 5]
+x+=[6,7] #x = [1, 2, 3, 4, 5, 6, 7]
+x+=(8,9,10) #x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+x[len(x):] = [11] #x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+x.extend([12,13]) #x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+x.extend((14,15)) #x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+# 14,15]
+```
+
+If x is a list and y is a tuple,
+- x = x + y will not work
+- x += y will work
+- y += x will not work :)
+
+```py
+# INSERT NEW ELEMENT
+x = [1,2,3] #x = [1, 2, 3]
+x.insert(1,"A") #x = [1, ”A”, 2, 3]
+x.insert(-1,"B") #x = [1, ”A”, 2, ”B”, 3]
+x.insert(len(x),"C") #x = [1, ”A”, 2, ”B”, 3, ”C”]
+
+x = [1,2,3,4,5] #x = [1, 2, 3, 4, 5]
+x[2] = 20 #x = [1, 2, 20, 4, 5]
+x[3:] = ["A","B","C"] #x = [1, 2, 20, ”A”, ”B”, ”C”]
+x[:4] = [10] #x = [10, ”B”, ”C”]
+x[1:3] = ['x','y','z'] #x = [10, ”x”, ”y”, ”z”]
+```
+
+- If you try using **remove** to remove an element that is not in a list, an error will be thrown
+- Don't try using remove on tuples ;)
+
+del KEYWORD:
+```py
+To remove an element from a specific position the del keyword can be used.
+Python 3.x
+x = [1,2,3,4,5] #x = [1, 2, 3, 4, 5]
+del x[2] #x = [1, 2, 4, 5]
+del x[-1] #x = [1, 2, 4]
+del x[0] #x = [2, 4]
+del x[1000] #!!! ERROR !!! – 1000 is not a valid index
+x = [1,2,3,4,5] #x = [1, 2, 3, 4, 5]
+del x[4:] #x = [1, 2, 3, 4]
+del x[:2] #x = [3, 4]
+x = [1,2,3,4,5] #x = [1, 2, 3, 4, 5]
+del x[2:4] #x = [1, 2, 5]
+```
+
+POP method:
+```py
+To pop method can be use to remove an element from a desire
+position an return it. This method can be use without any
+parameter (and in this case it refers to the last element)
+Python 3.x
+x = [1,2,3,4,5] #x = [1, 2, 3, 4, 5]
+y = x.pop(2) #x = [1, 2, 4, 5] y = 3
+y = x.pop(0) #x = [2, 4, 5] y = 1
+y = x.pop(-1) #x = [2, 4] y = 5
+y = x.pop() #x = [2] y = 4
+y = x.pop(1000) #!!! ERROR !!! – 1000 is not a valid index
+del x[:] # will clear the entire list
+# can also do this with the clear method:
+x.clear()
+```
+
+### Copying a list
+Be aware that using the operator (=) does not make a copy but only a
+reference of a list.
+
+If you want to make a copy of a list, use the list keyword:
+```py
+x = [1,2,3]
+y = x
+y.append(10)
+#x = [1,2,3,10]
+#y = [1,2,3,10]
+
+x = [1,2,3]
+y = list (x)
+y.append(10)
+#x = [1,2,3]
+#y = [1,2,3,10]
+
+Python 3.x also has a method copy that can be used to create a
+shallow copy of a list
+
+The operator [:] can also be use to achieve the same result
+x = [1,2,3] #x = [1, 2, 3]
+b = x.copy() #x = [1, 2, 3] b = [1, 2, 3]
+b += [4] #x = [1, 2, 3] b = [1, 2, 3, 4]
+
+x = [1,2,3] #x = [1, 2, 3]
+b = x[:] #x = [1, 2, 3] b = [1, 2, 3]
+b += [4] #x = [1, 2, 3] b = [1, 2, 3, 4]
+```
+
+### Other list functions
+
+```py
+x = ["A","B","C","D"] #x = [”A”, ”B”, ”C”, ”D”, ”E”]
+y = x.index("C") #y = 2
+y = x.index("Y") #!!! ERROR !!! – ”Y” is not part of list x
+x.count(0)
+x.reverse()
+x = [2,1,4,3,5]
+x.sort() #x = [1,2,3,4,5]
+x.sort(reverse=True) #x = [5,4,3,2,1]
+x.sort(key = lambda i: i%3) #x = [3,4,1,2,5]
+x.sort(key = lambda i: i%3,reverse=True) #x = [5,2,4,1,3]
+```
+
+### MAP function
+- Use map to create a new list where each element is obtained based
+on the lambda expression provided.
+
+```py
+x = [1,2,3,4,5]
+y = list(map(lambda element: element*element,x)) #y = [1,4,9,16,25]
+x = [1,2,3]
+y = [4,5,6]
+z = list(map(lambda e1,e2: e1+e2,x,y)) #z = [5,7,9]
+```
+
+- map function returns an iterable object in Python 3.x
+
+-  to create a list from an iterable object, use the list keyword
+Python
+```py
+x = [1,2,3]
+y = map(lambda element: element*element,x)
+#y = iterable object 
+
+x = [1,2,3]
+y = [4,5,6,7]
+z = list(map(lambda e1,e2: e1+e2,x,y)) #z = [5,7,9]
+```
+
+### Other functions
+```py
+x = [1,2,3,4,5]
+y = list(filter(lambda element: element%2==0,x)) #y = [2,4]
+
+#Both filter and map can also be used to create a list (usually in conjunction with range keyword)
+x = list(map(lambda x: x*x, range(1,10)))
+#x = [1, 4, 9, 16, 25, 36, 49, 64, 81]
+x = list(filter(lambda x: x%7==1,range(1,100)))
+#x = [1, 8, 15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99]
+
+x = [1,2,3,4,5]
+y = max (x) #y = 5
+y = max (1,3,2,7,9,3,5) #y = 9
+y = max (x,key = lambda i: i % 3) #y = 2
+```
+
+- If you want to use a key for max and/or min function, be sure that you added with the parameter name decoration: key = <function>, and not just the key_function or a lambda.
+
+```py
+x = [1,2,3,4,5]
+y = sum (x) #y = 15
+y = sum (x,100) #y = 115 (100+15)
+x = [1,2,”3”,4,5]
+y = sum (x) #ERROR Can’t add int and string
+```
+
+```py
+x = [2,1,4,3,5]
+y = sorted (x) #y = [1,2,3,4,5]
+y = sorted (x,reverse=True) #y = [5,4,3,2,1]
+y = sorted (x,key = lambda i: i%3) #y = [3,1,4,2,5]
+y = sorted (x,key = lambda i: i%3,reverse=True) #y = [2,5,1,4,3]
+```
+
+Use any and all to check if at least one or all elements from a list
+(iterable objects) can be evaluated to true.
+```py
+x = [2,1,0,3,5]
+y = any(x) #y = True, all numbers except 0 are evaluated to True
+y = all(x) #y = False, 0 is evaluated to False
+```
+
+- Use zip to group 2 or more iterable objects into one iterable object
+- Use zip with * character to unzip such a list. The unzip variables are tuples
+```py
+x = [1,2,3]
+y = [10,20,30]
+z = list(zip(x,y)) #z = [(1,10) , (2,20) , (3,30)]
+
+x = [(1,2) , (3,4) , (5,6)]
+a,b = zip(*x) #a = (1,3,5) and b = (2,4,6)
+```
+
+```py
+x = [1,2,3]
+del x
+print (x) #!!!ERROR!!! x no longer exists
+```
 
 
 
