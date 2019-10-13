@@ -548,5 +548,7 @@ del x
 print (x) #!!!ERROR!!! x no longer exists
 ```
 
+Check this out: https://riptutorial.com/python/example/14981/destructuring-assignment
+
 
 
