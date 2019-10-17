@@ -25,6 +25,7 @@ ex_string = [
     ['h', 't', 'y', 'p']
 ]
 
+
 def get_elements_spiral_matrix(matrix):
     length = len(matrix[0])
     word = ""
