@@ -4,6 +4,8 @@ Courses and laboratories for the Python course at university.
 
 ## Courses - information to remember
 
+(Course 1)[https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-1---introduction]
+
 ## Course 1 - Introduction
 
 ### Coding Style
