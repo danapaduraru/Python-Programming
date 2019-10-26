@@ -5,8 +5,14 @@ Courses and laboratories for the Python course at university.
 ## Courses - information to remember
 
 [Course 1 - Coding style, operations, strings, functions](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-1---introduction)
+
 [Course 2 - Functions, lambda functions, sequences, lists](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
-[Course 3 - ](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-3---Sets-and-dictionaries)
+
+[Course 3 - Sets and dictionaries](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
+
+[Course 4 - Exceptions, Modules (sys and os), I/O, File management](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
+
+[Course 5 - Custom Modules , Packages, Dynamic Code)](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
 
 ## Course 1 - Introduction
 
@@ -556,3 +562,6 @@ Check this out: https://riptutorial.com/python/example/14981/destructuring-assig
 
 ## Course 3 - Sets and Dictionaries
 
+## Course 4 - Exceptions, Modules (sys and os), I/O, File management
+
+## Course 5 - Custom Modules , Packages, Dynamic Code
