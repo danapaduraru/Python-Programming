@@ -12,7 +12,7 @@ Courses and laboratories for the Python course at university.
 
 [Course 4 - Exceptions, Modules (sys and os), I/O, File management](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-4---exceptions-modules-sys-and-os-io-file-management)
 
-[Course 5 - Custom Modules , Packages, Dynamic Code)](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-5---custom-modules--packages-dynamic-code)
+[Course 5 - Custom Modules , Packages, Dynamic Code](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-5---custom-modules--packages-dynamic-code)
 
 ## Course 1 - Introduction
 
