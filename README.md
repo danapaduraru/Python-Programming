@@ -555,12 +555,146 @@ a,b = zip(*x) #a = (1,3,5) and b = (2,4,6)
 ```py
 x = [1,2,3]
 del x
-print (x) #!!!ERROR!!! x no longer exists
+print(x) #!!!ERROR!!! x no longer exists
 ```
 
 Check this out: https://riptutorial.com/python/example/14981/destructuring-assignment
 
 ## Course 3 - Sets and Dictionaries
+
+### Sets - Intro
+
+```py
+x = {1,2,3,1,1} # x will contain 1,2,3
+x = set((1,2,3,1)) # 1,2,3
+x = set([1,2,3,2]) # 1,2,3
+x = set("Hello") # H, e, l, o
+```
+
+```py
+x = {1,2,3}
+# x[0] / x[1] ... => will produce an ERROR
+y = {3,4}
+z = x + y # ERROR - there is no addition operation
+```
+
+### Sets - Operations
+
+We add elements to the set using the **add** function.
+
+We remove elements using the **remove** and **discard** functions.
+
+The difference is that "remove" throws an error if the set does not contain that element.
+
+Use **clear** method to empty an entire set.
+
+Several elements can be added to a set using either the **update** method (can have multiple params) or the operator **|=**:
+```py
+x = {1}
+x |= {2,3} # 1,2,3
+x.update({4}) # 1,2,3,4
+x.update({5},{6}) # 1,2,3,4,5,6
+```
+
+Union can be achieved using the operator **|** or the method **union**
+```py
+x = {1}
+y = {2}
+z = x | y # 1,2
+s = {3}
+s = s.union(z) # 1,2,3
+```
+
+For intersection we have the **&** operator and the **intersection** method.
+
+For difference we have **-** and **difference**.
+
+Symetric difference can be performed by using **^** or **symmetric_difference**
+
+All sets operations also support some operations that apply to one variable such as:
+Intersection
+        intersection_update
+        &=
+Difference
+        difference_update
+        -=
+Symmetric difference
+        symmetric_difference_update
+        ^=
+
+Use method **isdisjoint** to test if a set has no common elements with another one (returns True/False)
+```py
+x = {1,2,3,4}
+y = {10,20,30,40}
+z = x.isdisjoint(y) # True
+```
+
+Use method **issubset** or operator <= to test if a set is included in another one.
+ 
+Use method issuperset or operator >= to test if a set is included in another one.
+
+Operator > can also be used -> it checks if a set is included in another BUT is not identical to it. 
+Operator < can be used in the same way.
+
+```py
+x = {1,2,3,4}
+y = {1,2,3,4,5,6}
+z = y.issuperset(x) #z = True
+t = y >= x #t = True
+
+x = {1,2,3,4}
+y = {1,2,3,4,5,6}
+t = y > x #t = True
+
+x = {1,2,3,4}
+y = {1,2,3,4}
+t = y > x #t = False
+```
+
+Use method **pop** to remove one element from the set. The remove element is different from Python 2.x to Python 3.x in terms of the order the element are kept in memory. Even if sets are unordered collection, in order to have quick access to different elements of the set these elements must be kept in memory in a certain way.
+
+Basically, python hashes the elements and takes the last N bits (where N is determined by the size of the set) and uses those bits as array indices to place the object in memory. Of course, the picture gets a little more complicated when you need to resolve collisions between hashes, but that's the gist of it.
+
+```
+Python 3.x
+x = {"A","a","B","b",1,2,3}
+print (x)
+print (x.pop())
+
+# Output:
+# {1, 2, 3, 'b', 'B', 'A', 'a'}
+# 1
+```
+
+Use **copy** method to make a shallow copy of a set.
+
+### Sets and functional programming
+
+```py
+x = {i for i in range(1,9)} #x = {1,2,3,4,5,6,7,8}
+x = {i for i in range(1,100) if i % 23 == 0} #x = {23, 46, 69, 92}
+x = {i*i for i in range(1,6)} #x = {1, 4, 9, 16, 25}
+x = {i%5 for i in range(1,100)} #x = {0, 1, 2, 3, 4|
+```
+
+### Set using lambda functions and map
+
+Use map to create a new set where each element is obtained based on the lambda expression provided.
+```py
+x = {1,2,3,4,5}
+y = set(map(lambda element: element*element,x)) #y = {1,4,9,16,25}
+x = [1,2,3]
+y = [4,5,6]
+z = set(map(lambda e1,e2: e1+e2,x,y)) #z = {5,7,9}
+
+x = [1,2,3,4,5]
+y = set(filter(lambda element: element%2==0,x)) #y = {2,4}
+
+x = set(map(lambda x: x*x, range(1,10)))
+#x = {1, 4, 9, 16, 25, 36, 49, 64, 81}
+x = set(filter(lambda x: x%7==1,range(1,100)))
+#x = {1, 8, 15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99}
+```
 
 ## Course 4 - Exceptions, Modules (sys and os), I/O, File management
 
