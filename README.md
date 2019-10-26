@@ -4,7 +4,9 @@ Courses and laboratories for the Python course at university.
 
 ## Courses - information to remember
 
-[Course 1](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-1---introduction)
+[Course 1 - Coding style, operations, strings, functions](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-1---introduction)
+[Course 2 - Functions, lambda functions, sequences, lists](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
+[Course 3 - ](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-3---Sets-and-dictionaries)
 
 ## Course 1 - Introduction
 
@@ -552,5 +554,5 @@ print (x) #!!!ERROR!!! x no longer exists
 
 Check this out: https://riptutorial.com/python/example/14981/destructuring-assignment
 
-
+## Course 3 - Sets and Dictionaries
 
