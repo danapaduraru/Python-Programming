@@ -4,6 +4,16 @@ Courses and laboratories for the Python course at university.
 
 ## Courses - information to remember
 
+[Course 1 - Coding style, operations, strings, functions](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-1---introduction)
+
+[Course 2 - Functions, lambda functions, sequences, lists](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-2---sequences)
+
+[Course 3 - Sets and dictionaries](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-3---sets-and-dictionaries)
+
+[Course 4 - Exceptions, Modules (sys and os), I/O, File management](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-4---exceptions-modules-sys-and-os-io-file-management)
+
+[Course 5 - Custom Modules , Packages, Dynamic Code](https://github.com/danapaduraru/Python-Programming/blob/master/README.md#course-5---custom-modules--packages-dynamic-code)
+
 ## Course 1 - Introduction
 
 ### Coding Style
@@ -545,10 +555,356 @@ a,b = zip(*x) #a = (1,3,5) and b = (2,4,6)
 ```py
 x = [1,2,3]
 del x
-print (x) #!!!ERROR!!! x no longer exists
+print(x) #!!!ERROR!!! x no longer exists
 ```
 
 Check this out: https://riptutorial.com/python/example/14981/destructuring-assignment
 
+## Course 3 - Sets and Dictionaries
+
+### Sets - Intro
+
+```py
+x = {1,2,3,1,1} # x will contain 1,2,3
+x = set((1,2,3,1)) # 1,2,3
+x = set([1,2,3,2]) # 1,2,3
+x = set("Hello") # H, e, l, o
+```
+
+```py
+x = {1,2,3}
+# x[0] / x[1] ... => will produce an ERROR
+y = {3,4}
+z = x + y # ERROR - there is no addition operation
+```
+
+### Sets - Operations
+
+We add elements to the set using the **add** function.
+
+We remove elements using the **remove** and **discard** functions.
+
+The difference is that "remove" throws an error if the set does not contain that element.
+
+Use **clear** method to empty an entire set.
+
+Several elements can be added to a set using either the **update** method (can have multiple params) or the operator **|=**:
+```py
+x = {1}
+x |= {2,3} # 1,2,3
+x.update({4}) # 1,2,3,4
+x.update({5},{6}) # 1,2,3,4,5,6
+```
+
+Union can be achieved using the operator **|** or the method **union**
+```py
+x = {1}
+y = {2}
+z = x | y # 1,2
+s = {3}
+s = s.union(z) # 1,2,3
+```
+
+For intersection we have the **&** operator and the **intersection** method.
+
+For difference we have **-** and **difference**.
+
+Symetric difference can be performed by using **^** or **symmetric_difference**
+
+All sets operations also support some operations that apply to one variable such as:
+Intersection
+        intersection_update
+        &=
+Difference
+        difference_update
+        -=
+Symmetric difference
+        symmetric_difference_update
+        ^=
+
+Use method **isdisjoint** to test if a set has no common elements with another one (returns True/False)
+```py
+x = {1,2,3,4}
+y = {10,20,30,40}
+z = x.isdisjoint(y) # True
+```
+
+Use method **issubset** or operator <= to test if a set is included in another one.
+ 
+Use method issuperset or operator >= to test if a set is included in another one.
+
+Operator > can also be used -> it checks if a set is included in another BUT is not identical to it. 
+Operator < can be used in the same way.
+
+```py
+x = {1,2,3,4}
+y = {1,2,3,4,5,6}
+z = y.issuperset(x) #z = True
+t = y >= x #t = True
+
+x = {1,2,3,4}
+y = {1,2,3,4,5,6}
+t = y > x #t = True
+
+x = {1,2,3,4}
+y = {1,2,3,4}
+t = y > x #t = False
+```
+
+Use method **pop** to remove one element from the set. The remove element is different from Python 2.x to Python 3.x in terms of the order the element are kept in memory. Even if sets are unordered collection, in order to have quick access to different elements of the set these elements must be kept in memory in a certain way.
+
+Basically, python hashes the elements and takes the last N bits (where N is determined by the size of the set) and uses those bits as array indices to place the object in memory. Of course, the picture gets a little more complicated when you need to resolve collisions between hashes, but that's the gist of it.
+
+```
+Python 3.x
+x = {"A","a","B","b",1,2,3}
+print (x)
+print (x.pop())
+
+# Output:
+# {1, 2, 3, 'b', 'B', 'A', 'a'}
+# 1
+```
+
+Use **copy** method to make a shallow copy of a set.
+
+### Sets and functional programming
+
+```py
+x = {i for i in range(1,9)} #x = {1,2,3,4,5,6,7,8}
+x = {i for i in range(1,100) if i % 23 == 0} #x = {23, 46, 69, 92}
+x = {i*i for i in range(1,6)} #x = {1, 4, 9, 16, 25}
+x = {i%5 for i in range(1,100)} #x = {0, 1, 2, 3, 4|
+```
+
+### Set using lambda functions and map
+
+Use **map** to create a new set where each element is obtained based on the lambda expression provided.
+```py
+x = {1,2,3,4,5}
+y = set(map(lambda element: element*element,x)) #y = {1,4,9,16,25}
+x = [1,2,3]
+y = [4,5,6]
+z = set(map(lambda e1,e2: e1+e2,x,y)) #z = {5,7,9}
+
+x = [1,2,3,4,5]
+y = set(filter(lambda element: element%2==0,x)) #y = {2,4}
+```
+The default build-in functions for list can also be used with sets and lambdas.
+
+Use **filter** to create a new set where each element is filtered based on the lambda expression provided.
+
+Both filter and map are used to create a set (usually in conjunction with range keyword)
+Python 3.x
+```py
+x = [1,2,3,4,5]
+y = set(filter(lambda element: element%2==0,x)) #y = {2,4}
+
+x = set(map(lambda x: x*x, range(1,10)))
+# x = {1,4,9,16,25,36,49,64,81}
+x = set(filter(lambda: x : x%7 == 1, range(1,100)))
+# x = {1, 8, 15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99}
+```
+Other functions that work in a similar way as the build-in functions for list are:
+**min, max, sum, any, all, sorted, reversed**
+
+### Frozenset
+
+Python language also has another type frozenset. A frozen set has all of the characteristics of a normal set, but it can not be modified. To create a frozen set use the frozenset keyword.
+Python 3.x
+```py
+x = frozenset ({1,2,3})
+x.add(10) #!!!ERROR!!!
+```
+### DICTIONARIES
+
+A dictionary is python implementation of a hash-map container. Design as a (key – value pair) where Key is a unique element within the dictionary.
+A special keyword dict can be used to create a dictionary. The { and } can also be used to build a dictionary – much like in the case of sets.
+
+```py
+x = dict() #x is an empty dictionary
+x = {} #x is an empty set !!! (not a dict)
+x = {”A”:1, ”B”:2} #x is a dictionary with 2 keys
+
+#(“A” and “B”)
+
+x = dict(abc=1,aaa=2) #equivalent to x= {”abc”:1, ”aaa”:2}
+x = dict({”abc”:1,”aaa”:2}) #equivalent to x= {”abc”:1, ”aaa”:2}
+x = dict([(”abc”,1) ,(”aaa”,2)]) #equivalent to x= {”abc”:1, ”aaa”:2}
+x = dict(((”abc”,1) ,(”aaa”,2))) #equivalent to x= {”abc”:1, ”aaa”:2}
+x = dict(zip([”abc”,”aaa”],[1,2]))#equivalent to x= {”abc”:1, ”aaa”:2}
+```
+
+Values from a dictionary can also be manipulated with **setdefault** method.
+
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+y = x.setdefault(”C”,3) #x = {”A”:1,”B”:2,”C:3”}, y=3
+y = x.setdefault(”D”) #x = {”A”:1,”B”:2,”C:3”,”D”:None}, y=None
+y = x.setdefault(”A”) #x = {”A”:1,”B”:2,”C:3”,”D”:None}, y=1
+y = x.setdefault(”B”,20) #x = {”A”:1,”B”:2,”C:3”,”D”:None}, y=2
+```
+
+### Changing values in a dictionary
+
+Method **update** can also be used to change the value associated with a key.
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+x.update({”A”:10}) #x = {”A”:10,”B”:2}
+x.update({”A”:100,”B”:5}) #x = {”A”:100,”B”:5}
+x.update({”C”:3}) #x = {”A”:100,”B”:5,”C”:3}
+x.update(D=123,E=111) #x = {”A”:100,”B”:5,”C”:3,”D”:123,”E”:111}
+```
+
+To delete an element from a dictionary use **del** keyword or **clear** method
+
+To create a new dictionary you can use **copy** or static method **fromkeys**
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+del x[”A”] #x = {”B”:2}
+x.clear() #x is an empty dictionary
+del x[”C”] #!!! ERROR !!! “C” is not a key in x
+
+x = {”A”:1, ”B”:2} #x={”A”:1,”B”:2}
+y = x.copy() #makes a shallow copy of x
+y[”C”]=3 #x={”A”:1,”B”:2},y={”A”:1,”B”:2,”C”:3}
+x = dict.fromkeys([”A”,”B”]) #x = {”A”:None,”B”:None}
+x = dict.fromkeys([”A”,”B”],2)#x = {”A”:2,”B”:2}
+```
+
+### Extracting elements from a dictionary
+
+If a value does not exists, an exception will be thrown when you try to access that value!!!
+
+To check if it exists, use "in" operator.
+
+**len** can also be used to find out how many keys a dictionary has.
+
+Elements from the dictionary can also be accessed with method **get**
+
+An element can also be extracted using **pop** method.
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+y = x.get(”A”) #y = 1
+y = x.get(”C”) #y = None                        !!!!!!
+y = x.get(”C”,123) #y = 123                     !!!!!!
+
+x = {”A”:1, ”B”:2} #x={”A”:1,”B”:2}
+y = x.pop(”A”) #x={”B”:2}, y = 1
+y = x.pop(”C”,123) #x={”B”:2}, y = 123
+y = x.pop(”D”) #!!! ERROR !!! Key “D” does not exists
+#and no default value was provided
+```
+
+### Dictionaries and Functional Programming
+
+A dictionary can also be built using functional programming
+```py
+x = {i:i for i in range(1,9)}
+#x = {1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8}
+x = {i:chr(64+i) for i in range(1,9)}
+#x = {1:”A”,2:”B”,3:”C”,4:”D”,5:”E”,6:”F”,7:”G”,8:”H”}
+x = {i%3:i for i in range(1,9)}
+#x = {0:6,1:7,2:8} # last values that were updated      !!!!!!
+x = {i:chr(64+i) for i in range(1,9) if i%2==0}
+#x = {2:”B”, 4:”D”, 6:”F”, 8:”H”}
+x = {i%3:chr(64+i) for i in range(1,9) if i<7}
+#x = {1:”D”, 2:”E”, 0:”F”}
+```
+
+### Methods to obtain elements from a dictionary
+
+Keys from the dictionary can be obtained with method **keys**
+
+To iterate all keys from a dictionary:
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+y = x.keys() #y = [”A”,”B”] # an iterable object
+
+x = {"A":1, "B":2}
+for i in x:
+    print (i)
+x = {"A":1, "B":2}
+for i in x.keys():
+    print (i)
+# both will print A B
+```
+
+Values from the dictionary can be obtained with method **values**
+
+To iterate all values from a dictionary:
+```py
+x = {”A”:1, ”B”:2} #x = {”A”:1,”B”:2}
+y = x.values() #y = [”1”,”2”]  an iterable object
+
+x = {”A”:1, ”B”:2}
+for i in x.values():
+        print (i)
+
+#Output: 1 2
+```
+
+*Output order may be different for different versions of python depending on how data is stored/ordered in memory.*
+
+All pairs from a dictionary can be obtained using the method **items** (used in the same manner as above)
+Output: ("A",1) ("B",2)
+
+Sort items from a dictionary based on their value:
+```py
+for i in sorted(x.items(),key = lambda element : element[1]):
+        print (i)
+```
+### Dictionaries and Functions
+
+Operator ****** can be used in a function to specify that the list of parameters of that function should be treated as a dictionary.
+```py
+def GetFastestCar(**cars):
+        min_speed = 0
+        name = None
+        for car_name in cars:
+
+        if cars[car_name] > min_speed:
+
+        name = car_name
+        min_speed = cars[car_name]
+
+        return name
+
+fastest_car = GetFastestCar(Dacia=120,BMW=160,Toyota=140)
+print (fastest_car)
+#fastest_car = ”BMW”
+```
+
+Build-in functions such as **filter** can also be used with dictionaries.
+```py
+x = {
+
+"Dacia" : 120,
+"BMW" : 160,
+"Toyota" : 140
+}
+y = dict(filter(lambda element : element[1]>=140,x.items()))
+#y = {”Toyota”:140, ”BMW”:160}
+```
+
+To delete an entire dictionary use **del** keyword.
+
+**enumerate** can also be used with dictionaries.
+```py
+x = {
+
+"Dacia" : 120,
+"BMW" : 160,
+"Toyota" : 140,
+"Volvo" : 115,
+"Renault" : 120,
+}
+for a in enumerate (x):
+        print (a)
+```
+In this case, the resulted touple contains the index and the key !
 
 
+## Course 4 - Exceptions, Modules (sys and os), I/O, File management
+
+## Course 5 - Custom Modules , Packages, Dynamic Code
