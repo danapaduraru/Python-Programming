@@ -10,6 +10,7 @@ for i in range(1, 10000):
 tf1 = time.monotonic() - t1
 tf2 = time.perf_counter() - t2
 print(tf1)
+print(tf2)
 # time.perf_counter_ns()
 time.sleep(3)
 print("dormi Costi?")
