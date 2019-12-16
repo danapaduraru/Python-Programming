@@ -32,6 +32,4 @@ def is_prime(x):
     return True
 
 
-x = int(input())
-print(process_item(x))
 
