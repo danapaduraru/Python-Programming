@@ -178,8 +178,6 @@ def problema12(path):
 
 
 def problema1(path):
-
-
     dicti = dict()
 
     if os.path.isdir(path):

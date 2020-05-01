@@ -10,8 +10,8 @@ from package import file
 from .file import function (in acelasi pachet)
 
 
-r'D:\python\lab_9\test.py'
-'D:\\python\\lab9\\test.py'
+r'D:\python\lab_9\prepare.py'
+'D:\\python\\lab9\\prepare.py'
 
 .../project <- current dir
 dira
